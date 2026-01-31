@@ -77,7 +77,7 @@ This configuration uses the `opencode-google-antigravity-auth` plugin to access 
    - Recommended: Use established Google account not needed for critical services
    - Safari users: Temporarily disable "HTTPS-Only Mode" during auth
 
-For detailed setup guide: https://github.com/jgordijn/opencode-antigravity-auth
+For detailed setup guide: https://github.com/NoeFabris/opencode-antigravity-auth
 
 ## Usage
 
