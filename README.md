@@ -21,18 +21,15 @@ The agent will guide you through the setup process by reading configuration file
 ### Configuration Files
 
 - **config.json** - Main configuration with:
-  - Plugin: `opencode-google-antigravity-auth`
-  - Provider: Google AI with high-thinking models
-    - Gemini 3 Pro Preview
-    - Gemini 3 Flash
-    - Claude Sonnet 4.5
-    - Claude Opus 4.5
-  - Formatter: Prettier for JS/TS/JSX/TSX/JSON/CSS
+  - **Plugin**: `opencode-google-antigravity-auth` - Google AI provider
+    - Uses Google OAuth for authentication (no API key needed)
+    - Requires `opencode auth login` with "OAuth with Google (Antigravity)" option
+    - Supports multi-account load balancing for rate limit rotation
+    - Models: Claude Opus 4.5, Claude Sonnet 4.5, Gemini 3 Pro, Gemini 3 Flash
+  - **Formatter**: Prettier for JS/TS/JSX/TSX/JSON/CSS
 
 ### Custom Agents
 
-- **Build** (default) - Blue - Full development access
-- **Plan** - Purple - Read-only analysis and planning
 - **Understand** - Bright green (#22c55e) - Teaching assistant
 
 **Understand Agent:**
@@ -48,6 +45,40 @@ The agent will guide you through the setup process by reading configuration file
   - Bold, memorable design choices
   - Exceptional attention to visual details
 
+## Plugin Setup: opencode-google-antigravity-auth
+
+This configuration uses the `opencode-google-antigravity-auth` plugin to access Google AI models.
+
+### Prerequisites
+
+- Node.js installed (https://nodejs.org/)
+- Google account for OAuth authentication
+
+### Setup Steps
+
+1. **Install plugin** (already in config.json):
+   ```json
+   {
+     "plugin": ["opencode-google-antigravity-auth"]
+   }
+   ```
+
+2. **Authenticate with Google**:
+   ```bash
+   opencode auth login
+   ```
+   - Choose "OAuth with Google (Antigravity)" provider
+   - Authenticate in browser that opens
+   - Optional: Add multiple accounts for rate limit rotation
+
+3. **Important Notes**:
+   - Uses OAuth authentication (no Google API key required)
+   - May violate Google's Terms of Service
+   - Recommended: Use established Google account not needed for critical services
+   - Safari users: Temporarily disable "HTTPS-Only Mode" during auth
+
+For detailed setup guide: https://github.com/jgordijn/opencode-antigravity-auth
+
 ## Usage
 
 Once set up, press **Tab** to cycle through agents:
@@ -55,21 +86,38 @@ Once set up, press **Tab** to cycle through agents:
 
 The "Understand" agent will appear in the lower-right corner with a **bright green indicator**.
 
+### Built-in Agents (OpenCode Default)
+- **Build** (default) - Blue - Full development access
+- **Plan** - Purple - Read-only analysis and planning
+
+### Custom Agent
+- **Understand** - Bright green (#22c55e) - Teaching assistant
+
 ## Manual Setup
 
-If the automated setup guidance doesn't work, you can manually copy files:
+If automated setup guidance doesn't work, you can manually copy files:
 
 1. **config.json** → `~/.config/opencode/config.json`
 2. **agents/understand.md** → `~/.config/opencode/agents/understand.md`
 3. **skills/frontend-design/SKILL.md** → `~/.config/opencode/skills/frontend-design/SKILL.md`
 
-Then restart OpenCode.
+Then run:
+```bash
+opencode auth login
+```
+Choose "OAuth with Google (Antigravity)" to complete plugin setup.
+
+Restart OpenCode to apply changes.
 
 ## Updating
 
 To update your configuration:
 1. Tell OpenCode: "Setup my opencode using https://github.com/clarenzmauro/opencode-config"
 2. Agent will guide you through updating changed files
+
+## OpenCode Documentation
+
+For general OpenCode questions or troubleshooting: https://opencode.ai/docs
 
 ## License
 
