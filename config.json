@@ -1,0 +1,73 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-google-antigravity-auth"],
+  "provider": {
+    "google": {
+      "npm": "@ai-sdk/google",
+      "models": {
+        "gemini-3-pro-high": {
+          "id": "gemini-3-pro-preview",
+          "name": "Gemini 3 Pro Preview (High Thinking)",
+          "options": {
+            "thinkingConfig": {
+              "thinkingLevel": "high",
+              "includeThoughts": true
+            }
+          }
+        },
+        "gemini-3-flash-high": {
+          "id": "gemini-3-flash",
+          "name": "Gemini 3 Flash (High Thinking)",
+          "options": {
+            "thinkingConfig": {
+              "thinkingLevel": "high",
+              "includeThoughts": true
+            }
+          }
+        },
+        "gemini-claude-sonnet-4-5-thinking-high": {
+          "id": "gemini-claude-sonnet-4-5-thinking",
+          "name": "Claude Sonnet 4.5 (High Thinking)",
+          "release_date": "2025-11-18",
+          "reasoning": true,
+          "limit": { "context": 200000, "output": 64000 },
+          "cost": { "input": 3, "output": 15, "cache_read": 0.3 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "options": {
+            "thinkingConfig": {
+              "thinkingBudget": 32000,
+              "includeThoughts": true
+            }
+          }
+        },
+        "gemini-claude-opus-4-5-thinking-high": {
+          "id": "gemini-claude-opus-4-5-thinking",
+          "name": "Claude Opus 4.5 (High Thinking)",
+          "release_date": "2025-11-24",
+          "reasoning": true,
+          "limit": { "context": 200000, "output": 64000 },
+          "cost": { "input": 5, "output": 25, "cache_read": 0.5 },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "options": {
+            "thinkingConfig": {
+              "thinkingBudget": 32000,
+              "includeThoughts": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "formatter": {
+    "prettier": {
+      "command": ["prettier", "--write", "$FILE"],
+      "extensions": [".js", ".ts", ".jsx", ".tsx", ".json", ".css"]
+    }
+  }
+}
