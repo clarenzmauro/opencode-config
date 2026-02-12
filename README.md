@@ -140,9 +140,10 @@ The "Understand" agent will appear in the lower-right corner with a **bright gre
 If automated setup guidance doesn't work, you can manually copy files:
 
 1. **config.json** → `~/.config/opencode/config.json`
-2. **agents/understand.md** → `~/.config/opencode/agents/understand.md`
-3. **skills/frontend-design/SKILL.md** → `~/.config/opencode/skills/frontend-design/SKILL.md`
-4. **credentials/server_password** → `~/.config/opencode/credentials/server_password`
+2. **AGENTS.md** → `~/.config/opencode/AGENTS.md`
+3. **agents/understand.md** → `~/.config/opencode/agents/understand.md`
+4. **skills/frontend-design/SKILL.md** → `~/.config/opencode/skills/frontend-design/SKILL.md`
+5. **credentials/server_password** → `~/.config/opencode/credentials/server_password`
 
 Then run:
 ```bash
