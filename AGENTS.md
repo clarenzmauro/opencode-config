@@ -21,42 +21,23 @@ Always use Bun instead of npm/pnpm/yarn:
 - **Goal**: Understand architecture, patterns, data flow at appropriate depth per area
 
 ### Large Codebases (Adaptive)
-- Strategic sampling across all modules
-- Follow dependencies outward from key areas
-- Prioritize architecture patterns and data flow
+- Strategic sampling across all modules, follow dependencies outward from key areas, prioritize architecture patterns and data flow
 
 ### Test Coverage (Required)
 - Understand ALL tests: infrastructure, patterns, behaviors, edge cases, integrations
 
 ### Data Flow Principle
-- **Input → Processing → Output**
-- Trace system-wide, identify all touchpoints
+- **Input → Processing → Output**: Trace system-wide, identify all touchpoints
 
 ### Before Implementing
-✓ Read codebase (or adaptive sample)
-✓ Understand architecture & patterns
-✓ Review all tests
-→ Proceed unless uncertain
-→ Ask questions if unclear
+✓ Read codebase (or adaptive sample), understand architecture & patterns, review all tests
+→ Proceed unless uncertain, ask questions if unclear
 
-## Code Style
-- Prioritize human-readability and simplicity
-- Write clean, straightforward code
-- Follow existing patterns, don't enforce new ones
-- Avoid over-engineering
-- Keep functions focused and concise
-
-## Testing
-- Required for ALL changes (features and bug fixes)
-- Use existing test frameworks
-- Ensure new tests pass before review
-- Run full test suite for significant changes
-
-## Architecture
-- Follow: SOLID, DRY, separation of concerns
-- Respect existing structure and patterns
-- Maintain consistency with established decisions
-- Consider maintainability and extensibility
+## Code Quality
+- Human-readable, simple code following existing patterns
+- Tests required for ALL changes, use existing frameworks
+- Follow SOLID, DRY, separation of concerns
+- Respect existing structure, maintain consistency, avoid over-engineering, keep functions focused
 
 ## Commit Workflow
 1. **Before showing changes**: Run full validation (syntax, typecheck, lint)
@@ -68,26 +49,70 @@ Always use Bun instead of npm/pnpm/yarn:
 
 ### What to Document
 After exploring codebase, document EVERY new pattern, convention, or decision:
-- Project structure: organization, boundaries, entry points
-- Code conventions: naming, formatting, comments
-- Architecture patterns: designs, decisions, relationships
-- Library usage: common libs, integrations, patterns
-- Config patterns: env vars, config files, build scripts
+- Project structure (organization, boundaries, entry points)
+- Code conventions (naming, formatting, comments)
+- Architecture patterns (designs, decisions, relationships)
+- Library usage (common libs, integrations, patterns)
+- Config patterns (env vars, config files, build scripts)
 
-### Documentation Workflow
+### Workflow
 1. **Discover**: Note undocumented patterns while reading
 2. **Propose**: Show additions with context and rationale
 3. **Approve**: Wait for EXPLICIT user approval
 4. **Update**: Add as simple bullets in relevant sections
-5. **Reference**: Use documented patterns in future tasks
 
-### Formatting
-- Simple bullet points only
-- Place in most relevant section
-- Be specific, include examples when helpful
-- Keep concise but informative
-
-### CRITICAL
-- **NEVER edit this file without explicit user approval**
+### Formatting & Critical Rules
+- Simple bullets in most relevant section, be specific, concise
+- **Target**: Document in **local project's AGENTS.md**, not this file
+- **NEVER edit any AGENTS.md without explicit user approval**
 - Always show proposed changes and explain why
 - User must confirm before updating
+
+## Memory Files
+
+### Purpose
+Track actions, decisions, and learnings across sessions to maintain continuity
+
+### File Location
+One MEMORY.md file per project, stored in project root
+
+### Agent Workflow
+1. **Start**: Read MEMORY.md before beginning work
+2. **During**: Reference as needed during task execution
+3. **After**: Auto-update after each task completion
+4. **Session End**: Update with key learnings and insights
+
+### MEMORY.md Template
+
+```markdown
+# Project Memory
+
+## Project Overview
+[Concise: Purpose, tech stack, key components, data flow]
+
+## Task History
+[YYYY-MM-DD] Task name - Brief outcome/status
+
+## Decisions
+[Date] Decision - Concise rationale
+
+## Patterns Discovered
+Pattern - Concise description + file reference
+
+## File Changes
+Action: path/to/file (concise reason)
+```
+
+### Conciseness Rules
+- **Project Overview**: 2-4 sentences, update on significant changes
+- **Task History**: One line per task, include date and status (✅/🔄/❌)
+- **Decisions**: One line per decision, rationale in 1 sentence
+- **Patterns Discovered**: One line per pattern, include file reference
+- **File Changes**: One line per change, reason in 5-10 words
+
+### Integration with AGENTS.md
+- MEMORY.md tracks actions and learnings
+- AGENTS.md documents patterns and conventions
+- MEMORY.md findings inform AGENTS.md documentation proposals
+- MEMORY.md: Auto-update (no approval needed)
+- AGENTS.md: Requires explicit user approval
