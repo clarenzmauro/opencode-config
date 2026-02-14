@@ -30,6 +30,35 @@ The agent will guide you through the setup process by reading configuration file
 
 - **credentials/server_password** - Server authentication password template
 
+- **AGENTS.md** - Global agent guidelines defining:
+  - **Package Manager**: Use Bun instead of npm/pnpm/yarn (command mappings)
+  - **Code Understanding**: Thorough codebase exploration before implementing
+    - Read everything first (adaptive for large codebases)
+    - Understand all tests (infrastructure, patterns, behaviors, edge cases)
+    - Follow data flow: Input → Processing → Output
+  - **Code Quality**: Combined guidelines for style, testing, and architecture
+    - Human-readable, simple code following existing patterns
+    - Tests required for ALL changes, use existing frameworks
+    - Follow SOLID, DRY, separation of concerns
+  - **Commit Workflow**: 4-step process with approval
+    1. Validate (syntax, typecheck, lint)
+    2. Present changes for review
+    3. Wait for explicit approval
+    4. Commit only after approval
+  - **Self-Documentation**: Agent learns and documents patterns
+    - Discover patterns, propose additions, get approval, update local AGENTS.md
+    - Requires explicit user approval before editing any AGENTS.md
+  - **Memory Files**: Track actions across sessions
+    - One MEMORY.md per project (not global)
+    - Agent reads at start, references during work, auto-updates after tasks
+    - Sections: Project Overview, Task History, Decisions, Patterns Discovered, File Changes
+
+- **MEMORY.md** - Project-specific memory file (created per project)
+  - Tracks actions, decisions, and learnings across sessions
+  - Enables agent continuity and avoids repeating work
+  - Auto-updated by agent (no approval needed)
+  - Stored in project root alongside AGENTS.md
+
 ### Custom Agents
 
 - **Understand** - Bright green (#22c55e) - Teaching assistant
@@ -144,6 +173,8 @@ If automated setup guidance doesn't work, you can manually copy files:
 3. **agents/understand.md** → `~/.config/opencode/agents/understand.md`
 4. **skills/frontend-design/SKILL.md** → `~/.config/opencode/skills/frontend-design/SKILL.md`
 5. **credentials/server_password** → `~/.config/opencode/credentials/server_password`
+
+**Note**: MEMORY.md is created per-project by the agent as needed (not part of global setup).
 
 Then run:
 ```bash
