@@ -5,9 +5,9 @@
     "google": {
       "npm": "@ai-sdk/google",
       "models": {
-        "gemini-3-1-pro-high": {
-          "id": "gemini-3.1-pro-preview",
-          "name": "Gemini 3.1 Pro (High Thinking)",
+        "gemini-3-pro-high": {
+          "id": "gemini-3-pro-preview",
+          "name": "Gemini 3 Pro Preview (High Thinking)",
           "options": {
             "thinkingConfig": {
               "thinkingLevel": "high",
