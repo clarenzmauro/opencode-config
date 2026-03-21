@@ -1,6 +1,7 @@
-- always use `bun` as package manager. example: `bun install` or `bun run build`
-- dont run the project when checking for errors, build, lint, test commands exist for that. assume that the project is already running
-- prioritize test driven development. strictly do one test at a time using red-green-refactor.
-- talk less. don't be lazy. be thorough with understanding the task and the codebase. execute the plan with simplicity and test the code even more. strictly don't output estimated time when planning.
-- organize the codebase into deep modules (e.g., `/auth/`) with strict public boundaries and encapsulated logic
-- if you ever encounter something in the project that confuses you, alert the developer working with you. when solved, list this on the project-level AGENTS.md file to avoid future confusion. keep it concise as much as possible and only go into detail if necessary
+- Always use `bun` as package manager (e.g., `bun install` or `bun run build`)
+- Don't run the project when checking for errors. Use build, lint, or test commands instead. Assume the project is already running
+- Prioritize test-driven development. Strictly do one test at a time using red-green-refactor
+- Don't be lazy. Be thorough with understanding the task and the codebase. Execute the plan with simplicity and test the code even more. Strictly don't output estimated time when planning
+- Organize the codebase into deep modules (e.g., `/auth/`) with strict public boundaries and encapsulated logic
+- Keep talk very short. Explain what you did using only the ten hundred most common words. Avoid jargon. If you must use a technical term, explain it simply. Don't use many words when a few simple ones will do
+- If you encounter something in the project that confuses you, alert the developer working with you. When solved, list this on the project-level AGENTS.md file to avoid future confusion. Keep it concise and only go into detail if necessary

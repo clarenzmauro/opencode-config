@@ -31,33 +31,13 @@ The agent will guide you through the setup process by reading configuration file
 - **credentials/server_password** - Server authentication password template
 
 - **AGENTS.md** - Global agent guidelines defining:
-  - **Package Manager**: Use Bun instead of npm/pnpm/yarn (command mappings)
-  - **Code Understanding**: Thorough codebase exploration before implementing
-    - Read everything first (adaptive for large codebases)
-    - Understand all tests (infrastructure, patterns, behaviors, edge cases)
-    - Follow data flow: Input → Processing → Output
-  - **Code Quality**: Combined guidelines for style, testing, and architecture
-    - Human-readable, simple code following existing patterns
-    - Tests required for ALL changes, use existing frameworks
-    - Follow SOLID, DRY, separation of concerns
-  - **Commit Workflow**: 4-step process with approval
-    1. Validate (syntax, typecheck, lint)
-    2. Present changes for review
-    3. Wait for explicit approval
-    4. Commit only after approval
-  - **Self-Documentation**: Agent learns and documents patterns
-    - Discover patterns, propose additions, get approval, update local AGENTS.md
-    - Requires explicit user approval before editing any AGENTS.md
-  - **Memory Files**: Track actions across sessions
-    - One MEMORY.md per project (not global)
-    - Agent reads at start, references during work, auto-updates after tasks
-    - Sections: Project Overview, Task History, Decisions, Patterns Discovered, File Changes
-
-- **MEMORY.md** - Project-specific memory file (created per project)
-  - Tracks actions, decisions, and learnings across sessions
-  - Enables agent continuity and avoids repeating work
-  - Auto-updated by agent (no approval needed)
-  - Stored in project root alongside AGENTS.md
+  - **Package Manager**: Use Bun instead of npm/pnpm/yarn
+  - **Error Checking**: Use build, lint, test commands instead of running the project
+  - **Test-Driven Development**: Strictly one test at a time using red-green-refactor
+  - **Thoroughness**: Be thorough with understanding the task and codebase
+  - **Module Organization**: Deep modules with strict public boundaries (e.g., `/auth/`)
+  - **Communication**: Keep talk short using simple words
+  - **Confusion Handling**: Alert developer when confused, document learnings in project AGENTS.md
 
 ### Custom Agents
 

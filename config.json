@@ -5,11 +5,6 @@
     "zai-coding-plan": {
       "options": {
         "baseURL": "https://api.z.ai/api/coding/paas/v4"
-      },
-      "models": {
-        "pony-alpha-2": {
-          "name": "Pony Alpha 2"
-        }
       }
     }
   },
