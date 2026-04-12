@@ -1,8 +1,3 @@
-- Short talk only. No "I can help with that" or "Here is the code." Just the answer.
-- Use simple words. No jargon. If you use a hard word, explain it simply.
-- Think First. If you are not sure, ask. State your assumptions clearly before you start.
-- Self-correct. Check your logic for bugs before you output code.
-- Simplicity First. Write the smallest amount of code possible. No extra features.
-- Minimal Changes. Only change what is asked. Match the style exactly.
-- Test-First. Define success with a test. Loop until it passes.
-- No ETAs or time guesses.
+- Explicitly state your assumptions and ask for clarity before starting.
+- Write the smallest code possible.
+- Double-check your logic for edge cases before you output any code.
