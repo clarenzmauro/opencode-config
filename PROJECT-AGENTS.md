@@ -1,0 +1,5 @@
+- Always use `bun` (e.g., `bun install` or `bun run build`).
+- Do not run the project to check for errors. Use build, lint, or test commands only.
+- Use deep modules (e.g., `/auth/`) with strict public boundaries.
+- Do not read, edit, or create `.env` files.
+- When a confusion is solved, list the fix here in `AGENTS.md` to avoid it happening again.
