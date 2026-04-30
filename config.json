@@ -1,18 +1,36 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "opencode-go/kimi-k2.6",
-  "agent": {
-    "general": {
-      "model": "opencode-go/qwen3.6-plus"
-    },
-    "explore": {
-      "model": "opencode-go/qwen3.6-plus"
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--executable-path",
+        "/Applications/Helium.app/Contents/MacOS/Helium",
+        "--user-data-dir",
+        "/Users/clarenzmauro/.helium-opencode-profile",
+        "--headless=false",
+        "--no-performance-crux",
+        "--no-usage-statistics"
+      ],
+      "enabled": true
     }
   },
   "formatter": {
     "prettier": {
       "command": ["prettier", "--write", "$FILE"],
       "extensions": [".js", ".ts", ".jsx", ".tsx", ".json", ".css"]
+    }
+  },
+  "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
     }
   }
 }

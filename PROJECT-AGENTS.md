@@ -1,4 +1,0 @@
-- Always use `bun` (e.g., `bun install` or `bun run build`).
-- Organize code into deep modules (e.g., `/auth/`) with strict public boundaries.
-- Write a test that fails first, then make it pass. Loop until success.
-- If a confusion is solved, list the fix here in this file to prevent it from happening again.
