@@ -33,6 +33,9 @@ const MAX_EXPERIENCE_ARCHIVE_MB = 50;
 const MAX_MEMORIES = 1_000;
 const MEMORY_DEDUP_TOKEN_OVERLAP = 0.75;
 
+/* Reflection fallback: reflect every N experiences even if compaction never fires */
+const REFLECT_EVERY_N_EXPERIENCES = 30;
+
 /* Contradiction detection constants */
 const CONTRADICTION_MIN_OVERLAP = 0.3;
 const CONTRADICTION_MAX_OVERLAP = 0.74;
@@ -1152,6 +1155,16 @@ const LearningLoopPlugin: Plugin = async (ctx) => {
       "tool.execute.after": async (input: any, output: any) => {
         try {
           await logExperience(input, output, input.sessionID);
+
+          // Fallback reflection trigger: if compaction events never fire, still reflect periodically
+          const experiences = await readExperiences();
+          const state = await readState();
+          const unprocessed = experiences.length - state.lastProcessedIndex;
+          if (unprocessed >= REFLECT_EVERY_N_EXPERIENCES && input.sessionID) {
+            runReflection(client, input.sessionID).catch((error) => {
+              logError("Fallback reflection failed:", error);
+            });
+          }
         } catch (error) {
           logError("Failed to log experience:", error);
         }
