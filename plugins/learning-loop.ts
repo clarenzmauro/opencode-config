@@ -361,10 +361,10 @@ async function gitDirInitialized(): Promise<boolean> {
 async function initGitRepo(): Promise<void> {
   if (await gitDirInitialized()) return;
   try {
-    await $`cd ${DATA_DIR} && git init`;
-    await $`cd ${DATA_DIR} && git remote add origin ${SYNC_REPO}`;
-    await $`cd ${DATA_DIR} && git config user.email "opencode@local"`;
-    await $`cd ${DATA_DIR} && git config user.name "OpenCode"`;
+    await $`cd ${DATA_DIR} && git init`.quiet();
+    await $`cd ${DATA_DIR} && git remote add origin ${SYNC_REPO}`.quiet();
+    await $`cd ${DATA_DIR} && git config user.email "opencode@local"`.quiet();
+    await $`cd ${DATA_DIR} && git config user.name "OpenCode"`.quiet();
     // Create a .gitignore to ignore archives
     const gitignorePath = join(DATA_DIR, ".gitignore");
     await Bun.write(gitignorePath, "*.archive\n");
@@ -376,7 +376,7 @@ async function initGitRepo(): Promise<void> {
 async function gitPull(): Promise<{ ok: boolean; message: string }> {
   try {
     await initGitRepo();
-    await $`cd ${DATA_DIR} && git fetch origin main --depth=1`;
+    await $`cd ${DATA_DIR} && git fetch origin main --depth=1`.quiet();
     // If remote has history, try to merge; if not, ignore
     const result =
       await $`cd ${DATA_DIR} && git merge origin/main --allow-unrelated-histories -m "sync"`.quiet();
@@ -395,7 +395,7 @@ async function gitPush(): Promise<{ ok: boolean; message: string }> {
     await initGitRepo();
 
     // Stage all data files
-    await $`cd ${DATA_DIR} && git add -A`;
+    await $`cd ${DATA_DIR} && git add -A`.quiet();
 
     // Check if there are changes
     const status = await $`cd ${DATA_DIR} && git status --porcelain`.text();
@@ -404,8 +404,8 @@ async function gitPush(): Promise<{ ok: boolean; message: string }> {
       return { ok: true, message: "No changes to sync" };
     }
 
-    await $`cd ${DATA_DIR} && git commit -m "Auto-sync memories (${new Date().toISOString()})"`;
-    await $`cd ${DATA_DIR} && git push -u origin main`;
+    await $`cd ${DATA_DIR} && git commit -m "Auto-sync memories (${new Date().toISOString()})"`.quiet();
+    await $`cd ${DATA_DIR} && git push -u origin main`.quiet();
 
     syncInFlight = false;
     return { ok: true, message: "Memories synced to remote" };
