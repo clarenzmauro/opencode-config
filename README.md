@@ -89,8 +89,6 @@ If automated setup guidance doesn't work, you can manually copy files:
 3. **skills/frontend-design/SKILL.md** → `~/.config/opencode/skills/frontend-design/SKILL.md`
 4. **credentials/server_password** → `~/.config/opencode/credentials/server_password`
 
-**Note**: MEMORY.md is created per-project by the agent as needed (not part of global setup).
-
 Restart OpenCode to apply changes.
 
 ## Updating
