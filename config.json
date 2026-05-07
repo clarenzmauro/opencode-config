@@ -1,13 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/kimi-k2.6",
+  "model": "opencode-go/deepseek-v4-pro",
   "agent": {
     "explore": {
       "model": "opencode-go/deepseek-v4-flash",
-      "reasoningEffort": "max"
+      "reasoningEffort": "max",
+      "description": "Requires highly specific, granular instructions. Always break down tasks into small, explicit steps with clear file targets and expected outputs to ensure correct execution."
     },
     "general": {
-      "model": "opencode-go/deepseek-v4-flash"
+      "model": "opencode-go/deepseek-v4-flash",
+      "description": "Requires highly specific, granular instructions. Always break down tasks into small, explicit steps with clear file targets and expected outputs to ensure correct execution."
     }
   },
   "mcp": {
