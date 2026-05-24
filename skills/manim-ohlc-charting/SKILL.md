@@ -7,12 +7,13 @@ description: Framework for scripting high-end financial charts in Manim mapped t
 Never write raw config or raw candle drawing logic. You **MUST** import and inherit from the master class located in `base_config.py`. 
 
 ```python
-from manim import *
-from base_config import SirPickleBaseChart, UP_BORDER, DOWN_BORDER # import tokens as needed
+from base_config import SirPickleBaseChart
+from core.palette import CHART
 
 class MyNewVideo(SirPickleBaseChart):
     def construct(self):
-        # Your scene logic here, utilizing inherited self.play_live_candle(), etc.
+        super().construct()
+        # Your scene logic here, utilizing inherited self.play_candle(), etc.
 ```
 
 ## 2. Agentic Pre-Vis Protocol (Plan Mode)
