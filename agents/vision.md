@@ -1,7 +1,7 @@
 ---
 description: Describes and analyzes images, screenshots, diagrams, and visual content from files on disk. Use this when the user provides an image file or asks about visual elements in a file.
 mode: subagent
-model: opencode-go/kimi-k2.6
+model: opencode-go/kimi-k2.5
 permission:
   read: allow
   edit: deny
