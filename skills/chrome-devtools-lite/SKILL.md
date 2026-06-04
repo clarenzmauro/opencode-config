@@ -1,5 +1,7 @@
-# chrome-devtools-lite
-High-level wrapper for Chrome DevTools MCP (Helium Browser)
+---
+name: chrome-devtools
+description: High-level wrapper for Chrome DevTools MCP (Helium Browser)
+---
 
 ## Tools (use these first):
 - `explore_and_summarize(url)` → navigate + compact text + interactive elements
